@@ -13,8 +13,7 @@ import History from './History';
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
-  const [hoveredImage, setHoveredImage] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null);  // To handle the selected image
+  const [selectedImage, setSelectedImage] = useState(null);
 
   // Simulate preloader timeout
   useEffect(() => {
@@ -24,30 +23,12 @@ function App() {
 
   // Gallery images with info
   const galleryImages = [
-    {
-      src: "https://as1.ftcdn.net/v2/jpg/02/74/56/92/1000_F_274569206_m5ZaXzmkozpRwUGagSgHvkeGGj2jy2Wb.jpg",
-      info: "A delicious plate of pasta garnished with fresh herbs.",
-    },
-    {
-      src: "https://as2.ftcdn.net/v2/jpg/02/12/69/59/1000_F_212695921_GaiXzq0hWQHwAtNzTNkEu7HYKpBfcgmj.jpg",
-      info: "A bowl of fresh salad with a tangy dressing.",
-    },
-    {
-      src: "https://t4.ftcdn.net/jpg/11/03/98/67/240_F_1103986775_hGG655a1Uay9XHRy312NWP6lt76iJYzX.jpg",
-      info: "it's pastry time!",
-    },
-    {
-      src: "https://t3.ftcdn.net/jpg/09/27/12/22/240_F_927122256_PfoOcHkdYR1xZG0corogfyQqqbvQY3gW.jpg",
-      info: "A sweet plate",
-    },
-    {
-      src: "https://as2.ftcdn.net/v2/jpg/09/18/18/01/1000_F_918180156_9ASMxGef4SVJqzhabZoxMO6Xm3gibScx.jpg",
-      info: "tea time .",
-    },
-    {
-      src: "https://t3.ftcdn.net/jpg/05/27/74/24/240_F_527742446_jLu7mDKK1Qx38xppfJZhDxWbBd2jTJAG.jpg",
-      info: "sabji and puri.",
-    },
+    { src: "https://as1.ftcdn.net/v2/jpg/02/74/56/92/1000_F_274569206_m5ZaXzmkozpRwUGagSgHvkeGGj2jy2Wb.jpg", info: "A delicious plate of pasta garnished with fresh herbs." },
+    { src: "https://as2.ftcdn.net/v2/jpg/02/12/69/59/1000_F_212695921_GaiXzq0hWQHwAtNzTNkEu7HYKpBfcgmj.jpg", info: "A bowl of fresh salad with a tangy dressing." },
+    { src: "https://t4.ftcdn.net/jpg/11/03/98/67/240_F_1103986775_hGG655a1Uay9XHRy312NWP6lt76iJYzX.jpg", info: "It's pastry time!" },
+    { src: "https://t3.ftcdn.net/jpg/09/27/12/22/240_F_927122256_PfoOcHkdYR1xZG0corogfyQqqbvQY3gW.jpg", info: "A sweet plate" },
+    { src: "https://as2.ftcdn.net/v2/jpg/09/18/18/01/1000_F_918180156_9ASMxGef4SVJqzhabZoxMO6Xm3gibScx.jpg", info: "Tea time." },
+    { src: "https://t3.ftcdn.net/jpg/05/27/74/24/240_F_527742446_jLu7mDKK1Qx38xppfJZhDxWbBd2jTJAG.jpg", info: "Sabji and puri." },
   ];
 
   // Slider settings
@@ -60,13 +41,7 @@ function App() {
     autoplay: true,
     autoplaySpeed: 5000,
     responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
+      { breakpoint: 768, settings: { slidesToShow: 1, slidesToScroll: 1 } },
     ],
   };
 
@@ -76,9 +51,7 @@ function App() {
   };
 
   // Close the modal
-  const closeModal = () => {
-    setSelectedImage(null);
-  };
+  const closeModal = () => setSelectedImage(null);
 
   return (
     <Router>
@@ -132,7 +105,7 @@ function App() {
                           >
                             <img
                               src={image.src}
-                              alt={`Dish ${index + 1}`}
+                              alt={`Dish ${index + 1}`} 
                               className="gallery-image"
                             />
                           </div>
@@ -152,26 +125,10 @@ function App() {
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>Breakfast</td>
-                            <td>Paneer Paratha</td>
-                            <td>Chicken Sandwich</td>
-                          </tr>
-                          <tr>
-                            <td>Lunch</td>
-                            <td>Veg Biryani</td>
-                            <td>Butter Chicken</td>
-                          </tr>
-                          <tr>
-                            <td>Evening Snacks</td>
-                            <td>Veg Cutlets</td>
-                            <td>Fish Fingers</td>
-                          </tr>
-                          <tr>
-                            <td>Dinner</td>
-                            <td>Palak Paneer</td>
-                            <td>Grilled Chicken</td>
-                          </tr>
+                          <tr><td>Breakfast</td><td>Paneer Paratha</td><td>Chicken Sandwich</td></tr>
+                          <tr><td>Lunch</td><td>Veg Biryani</td><td>Butter Chicken</td></tr>
+                          <tr><td>Evening Snacks</td><td>Veg Cutlets</td><td>Fish Fingers</td></tr>
+                          <tr><td>Dinner</td><td>Palak Paneer</td><td>Grilled Chicken</td></tr>
                         </tbody>
                       </table>
                     </section>
@@ -180,22 +137,10 @@ function App() {
                     <section className="recipe-week">
                       <h2>Recipe of the Week</h2>
                       <div className="recipe-cards">
-                        <div className="recipe-card">
-                          <h3>Special Veggie Delight</h3>
-                          <p>A mix of fresh veggies with a tangy twist. Perfect for any occasion!</p>
-                        </div>
-                        <div className="recipe-card">
-                          <h3>Spicy Chicken Curry</h3>
-                          <p>A flavorful curry packed with spices and tender chicken.</p>
-                        </div>
-                        <div className="recipe-card">
-                          <h3>Classic Pasta</h3>
-                          <p>Rich, creamy pasta with a touch of herbs and cheese.</p>
-                        </div>
-                        <div className="recipe-card">
-                          <h3>Chocolate Lava Cake</h3>
-                          <p>Delicious molten lava cake for dessert lovers!</p>
-                        </div>
+                        <div className="recipe-card"><h3>Special Veggie Delight</h3><p>A mix of fresh veggies with a tangy twist. Perfect for any occasion!</p></div>
+                        <div className="recipe-card"><h3>Spicy Chicken Curry</h3><p>A flavorful curry packed with spices and tender chicken.</p></div>
+                        <div className="recipe-card"><h3>Classic Pasta</h3><p>Rich, creamy pasta with a touch of herbs and cheese.</p></div>
+                        <div className="recipe-card"><h3>Chocolate Lava Cake</h3><p>Delicious molten lava cake for dessert lovers!</p></div>
                       </div>
                     </section>
 
